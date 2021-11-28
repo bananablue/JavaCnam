@@ -1,0 +1,135 @@
+package nfa031;
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class TestMethode {
+	public static Scanner input = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int menu = 0;
+		while (menu < 1 || menu > 4) {
+			System.out.println(" Choisissez votre programme : ");
+			System.out.println();
+			System.out.println(" ****************************** ");
+			System.out.println();
+			System.out.println(" 1- Conversion de température. ");
+			System.out.println(" 2- Année Bissextile. ");
+			System.out.println(" 3- Rendu Monnaie.");
+			System.out.println(" 4- Conversion du temps");
+			System.out.println();
+			menu = input.nextInt();
+		}
+
+		switch (menu) {
+		case 1:
+			menu = 0;
+			float temp = 0;
+			while (menu < 1 || menu > 2) {
+				System.out.println(" Conversion de température : ");
+				System.out.println();
+				System.out.println(" ****************************** ");
+				System.out.println();
+				System.out.println(" 1- Celius vers Farenheit ? ");
+				System.out.println(" 2- Farenheit vers Celsius ? ");
+				System.out.println();
+				menu = input.nextInt();
+				System.out.println();
+				System.out.println(" ****************************** ");
+				System.out.println();
+				System.out.println(" Entrez la température à convertir : ");
+				System.out.println();
+				temp = input.nextFloat();
+			}
+			if (menu == 1) {
+				System.out.println((temp - 32) * (9 / 5) + " F° ");
+			} else {
+				System.out.println((temp + 32) / (9 * 5) + " C° ");
+			}
+			break;
+		case 2:
+			int annee = 0;
+			System.out.println(" Année bissextile ? ");
+			System.out.println();
+			System.out.println(" ****************************** ");
+			System.out.println();
+			System.out.println(" Entrez une année : ");
+			annee = input.nextInt();
+
+			if (( annee % 4 == 0 ) && ( annee % 100 != 0 ) || ( annee % 400 == 0 ) ) {
+				System.out.println(annee + " est une année bissextile. ");
+			} else {
+				System.out.println(annee + " n'est pas une année bissextile. ");
+			}
+			break;
+		case 3:
+			int montant = 0;
+			int billet50 = 0;
+			int billet20 = 0;
+			int billet10 = 0;
+			int billet5 = 0;
+			int piece2 = 0;
+			int piece1 = 0;
+			System.out.println(" Rendu monnaie : ");
+			System.out.println();
+			System.out.println(" ****************************** ");
+			System.out.println();
+			System.out.println(" Entrez un montant (entier) et la programme vous dit la monnaie qu'il vous rend : ");
+			System.out.println();
+			System.out.println(" Saisissez un montant : ");
+			montant = input.nextInt();
+			billet50 = montant / 50;
+			montant = montant % 50;
+			billet20 = montant / 20;
+			montant = montant % 20;
+			billet10 = montant / 10;
+			montant = montant % 10;
+			billet5 = montant / 5;
+			montant = montant % 5;
+			piece2 = montant / 2;
+			montant = montant % 2;
+			piece1 = montant / 1;
+			if (billet50 > 0) {
+				System.out.println(billet50 + " billet de 50 € ");
+			}
+			if (billet20 > 0) {
+				System.out.println(billet20 + " billet de 20 € ");
+			}
+			if (billet10 > 0) {
+				System.out.println(billet10 + " billet de 10 € ");
+			}
+			if (billet5 > 0) {
+				System.out.println(billet5 + " billet de 5 € ");
+			}
+			if (piece2 > 0) {
+				System.out.println(piece2 + " pièce de 2 € ");
+			}
+			if (piece1 > 0) {
+				System.out.println(piece1 + " pièce de 1 € ");
+			}
+			break;
+		case 4:
+			int seconde = 0;
+			int heure = 0;
+			int minute = 0;
+			System.out.println(" Convertir seconde en hh:mm:ss ");
+			System.out.println();
+			System.out.println(" Entrez un nombre entier exprimant des secondes : ");
+			seconde = input.nextInt();
+			heure = seconde / 3600;
+			seconde = seconde % 3600;
+			minute = seconde / 60;
+			seconde = seconde % 60;
+			System.out.println("");
+			System.out.println();
+			System.out.println(" Cela fait : " + heure + " h : " + minute + " min : " + seconde + " sec.");
+			break;
+		default:
+			System.out.println(" entrez un nombre entre 1 et 4 : ");
+
+		}
+		input.close();
+	}
+	
+}
